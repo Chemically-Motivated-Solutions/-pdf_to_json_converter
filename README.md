@@ -10,4 +10,15 @@ pinned: false
 license: mit
 ---
 
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+# PDF to JSON Converter
+
+This Streamlit application allows users to upload PDF files, extract text, and convert it into a structured JSON format using a Hugging Face model.
+
+## Setup
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/pdf_to_json_converter.git
+   cd pdf_to_json_converter
+   ```
