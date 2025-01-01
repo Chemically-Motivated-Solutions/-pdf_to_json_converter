@@ -11,10 +11,13 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        lfs: true
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         python-version: '3.x'
 
@@ -30,4 +33,5 @@ jobs:
 
     - name: Push to Hugging Face
       run: |
-        # Add your commands to push files to Hugging Face here
+        git remote add space https://huggingface.co/spaces/your_username/your_space_name
+        git push --force space main
