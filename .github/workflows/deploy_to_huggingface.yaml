@@ -1,0 +1,33 @@
+name: Deploy to Hugging Face
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        pip install huggingface_hub
+
+    - name: Authenticate with Hugging Face
+      env:
+        HUGGINGFACE_TOKEN: ${{ secrets.HUGGINGFACE_TOKEN }}
+      run: |
+        huggingface-cli login --token $HUGGINGFACE_TOKEN
+
+    - name: Push to Hugging Face
+      run: |
+        # Add your commands to push files to Hugging Face here
